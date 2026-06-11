@@ -8,14 +8,7 @@ Built for the Quantic AI Engineering Project.
 > **Status:** In development. Stage 0 (environment & scaffolding) complete.
 > See [`PROJECT-ROADMAP.md`](PROJECT-ROADMAP.md) for the full build plan.
 
-## Architecture (planned)
-
-```
-corpus/   ->  ingest/  ->  Chroma vector DB  ->  rag/  ->  app/
-(policies)   (parse,        (embeddings +        (top-k    (Streamlit UI +
-             chunk,          metadata)            retrieval  FastAPI /chat,
-             embed)                               + LLM)     /health)
-```
+## Architecture
 
 - **Vector store:** Chroma (local, persisted)
 - **Embeddings:** `all-MiniLM-L6-v2` (free, local)
@@ -57,7 +50,7 @@ uvicorn app.api:app --reload
 pytest -q
 ```
 
-## Project layout
+## Project Layout
 
 | Path                  | Purpose                                            |
 |-----------------------|----------------------------------------------------|
@@ -72,5 +65,5 @@ pytest -q
 
 ## Documentation
 
-- `design-and-evaluation.md` — design decisions + evaluation results (Stage 7)
-- `ai-tooling.md` — AI tools used and how (Stage 7)
+- `design-and-evaluation.md` - design decisions + evaluation results (Stage 7)
+- `ai-tooling.md` - AI tools used and how (Stage 7)

@@ -1,5 +1,5 @@
 # --- Core RAG ---
-chromadb==0.5.5               # local vector store
+chromadb==0.5.5              # local vector store
 sentence-transformers==3.0.1 # free local embeddings (all-MiniLM-L6-v2)
 tiktoken==0.7.0              # token-aware chunking
 
