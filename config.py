@@ -1,9 +1,4 @@
-"""Central configuration and reproducibility settings.
-
-All tunable parameters live here so design choices (embedding model, k,
-chunk size, prompt params) are documented in one place and overridable
-via environment variables / .env.
-"""
+"""Central configuration and reproducibility settings."""
 from __future__ import annotations
 
 import os
@@ -12,11 +7,9 @@ from pathlib import Path
 
 try:
     from dotenv import load_dotenv
-
     load_dotenv()
-except Exception:  # python-dotenv not installed yet (e.g. bare CI import check)
+except Exception:
     pass
-
 
 # --- Paths ---
 ROOT_DIR = Path(__file__).resolve().parent
@@ -26,13 +19,12 @@ CORPUS_DIR = ROOT_DIR / "corpus"
 SEED = int(os.getenv("SEED", "42"))
 
 
-def set_seeds(seed: int = SEED) -> None:
+def set_seeds(seed=SEED):
     """Fix seeds for deterministic chunking and evaluation sampling."""
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     try:
         import numpy as np
-
         np.random.seed(seed)
     except Exception:
         pass
@@ -47,14 +39,15 @@ OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instru
 
 # --- Embeddings ---
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "384"))
 
 # --- Vector store ---
 CHROMA_DIR = os.getenv("CHROMA_DIR", str(ROOT_DIR / ".chroma"))
 CHROMA_COLLECTION = os.getenv("CHROMA_COLLECTION", "policies")
 
-# --- Chunking ---
-CHUNK_SIZE_TOKENS = int(os.getenv("CHUNK_SIZE_TOKENS", "512"))
-CHUNK_OVERLAP_TOKENS = int(os.getenv("CHUNK_OVERLAP_TOKENS", "64"))
+# --- Chunking (kept at/below the embedding model's 256-token input limit) ---
+CHUNK_SIZE_TOKENS = int(os.getenv("CHUNK_SIZE_TOKENS", "256"))
+CHUNK_OVERLAP_TOKENS = int(os.getenv("CHUNK_OVERLAP_TOKENS", "40"))
 
 # --- Retrieval / generation ---
 TOP_K = int(os.getenv("TOP_K", "4"))
