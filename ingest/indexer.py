@@ -6,6 +6,8 @@ deterministic. Cosine distance is used to match the normalized embeddings.
 """
 from __future__ import annotations
 
+import logging
+import os
 from typing import List
 
 import chromadb
@@ -13,9 +15,22 @@ import chromadb
 from .chunker import Chunk
 from .embedder import Embedder
 
+# Quiet Chroma's telemetry. The setting below is honored by newer Chroma; the
+# logger silence covers chromadb 0.5.x, where a posthog signature mismatch prints
+# noisy "Failed to send telemetry event" lines regardless of the setting.
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
+logging.getLogger("chromadb.telemetry").setLevel(logging.CRITICAL)
+
 
 def _client(chroma_dir: str):
-    return chromadb.PersistentClient(path=chroma_dir)
+    try:
+        from chromadb.config import Settings
+        return chromadb.PersistentClient(
+            path=chroma_dir,
+            settings=Settings(anonymized_telemetry=False),
+        )
+    except Exception:
+        return chromadb.PersistentClient(path=chroma_dir)
 
 
 def build_index(
@@ -53,16 +68,11 @@ def build_index(
 
 
 def get_collection(chroma_dir: str, collection_name: str):
-    """Open an existing collection for querying (used by the RAG retriever in Stage 3)."""
+    """Open an existing collection for querying (used by the RAG retriever)."""
     return _client(chroma_dir).get_collection(collection_name)
 
 
-def query(
-    collection,
-    embedder: Embedder,
-    text: str,
-    k: int,
-):
+def query(collection, embedder: Embedder, text: str, k: int):
     """Convenience top-k query returning Chroma's result dict."""
     q_emb = embedder.embed([text])
     return collection.query(
