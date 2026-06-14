@@ -5,6 +5,13 @@ This is the "/" web chat interface required by the project brief.
 """
 from __future__ import annotations
 
+import os
+import sys
+# Ensure the project root is importable (so `import config`, `rag`, `ingest`
+# resolve even when launched via `streamlit run app/...`, which puts the
+# script's own folder on sys.path instead of the project root).
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import streamlit as st
 
 import config
