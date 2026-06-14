@@ -27,5 +27,3 @@ models/
 
 # Eval/run artifacts
 *.log
-eval/results/*.json
-eval/results/*.csv

@@ -1,0 +1,28 @@
+{
+  "4": {
+    "total_questions": 25,
+    "top_k": 4,
+    "rerank": true,
+    "groundedness_pct": 96.0,
+    "citation_accuracy_pct": 92.0,
+    "partial_match_pct": 100.0,
+    "latency_p50_ms": 6157.0,
+    "latency_p95_ms": 8195.4,
+    "latency_mean_ms": 5574.1,
+    "model": "llama-3.1-8b-instant",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "6": {
+    "total_questions": 25,
+    "top_k": 6,
+    "rerank": true,
+    "groundedness_pct": 88.0,
+    "citation_accuracy_pct": 88.0,
+    "partial_match_pct": 100.0,
+    "latency_p50_ms": 8152.0,
+    "latency_p95_ms": 10215.6,
+    "latency_mean_ms": 8180.4,
+    "model": "llama-3.1-8b-instant",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+  }
+}

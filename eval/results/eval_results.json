@@ -1,0 +1,396 @@
+{
+  "summary": {
+    "total_questions": 25,
+    "top_k": 4,
+    "rerank": true,
+    "groundedness_pct": 96.0,
+    "citation_accuracy_pct": 92.0,
+    "partial_match_pct": 100.0,
+    "latency_p50_ms": 6157.0,
+    "latency_p95_ms": 8195.4,
+    "latency_mean_ms": 5574.1,
+    "model": "llama-3.1-8b-instant",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "question": "How many PTO days do full-time employees get each year?",
+      "answer": "Full-time employees accrue 20 days (160 hours) of PTO per year [HR-002].",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 391,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 2,
+      "question": "What is the monthly PTO accrual rate?",
+      "answer": "According to [HR-002], the monthly PTO accrual rate is 1.67 days (13.33 hours) per month.",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 106,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 3,
+      "question": "How many unused PTO days can I carry over to the next year?",
+      "answer": "According to [HR-002], employees may carry over a maximum of **5 unused PTO days** into the next calendar year.",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 118,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 4,
+      "question": "How many paid sick days do full-time employees receive?",
+      "answer": "Full-time employees receive 10 days (80 hours) of paid sick leave per year, available from the first day of employment [HR-002].",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 4138,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 5,
+      "question": "How long is paid parental leave?",
+      "answer": "According to [HR-002], eligible employees receive 12 weeks of fully paid parental leave following the birth, adoption or foster placement of a child. This leave must be taken within 12 months of the qualifying event. [HR-002]",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 12258,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 6,
+      "question": "How many paid days of bereavement leave are provided for an immediate family member?",
+      "answer": "According to Section 6 of the PTO & Leave Policy [HR-002], employees may take up to **5 paid days** of bereavement leave for the death of an immediate family member.",
+      "expected_doc_id": "HR-002",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 8205,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 7,
+      "question": "How many paid company holidays does Helix observe?",
+      "answer": "Helix observes 11 paid company holidays each year [HR-002, HR-007].",
+      "expected_doc_id": "HR-007",
+      "cited": [
+        "HR-002"
+      ],
+      "citation_correct": false,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 7162,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 8,
+      "question": "How many floating holidays do employees get each year?",
+      "answer": "According to [HR-007], [HR-010], each employee receives 2 floating holidays per year to use for religious observances, cultural celebrations, or personal days.",
+      "expected_doc_id": "HR-007",
+      "cited": [
+        "HR-007",
+        "HR-010"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5142,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 9,
+      "question": "What is the meal per diem for domestic travel?",
+      "answer": "According to [FIN-001] and [FIN-002], the meal per diem for domestic travel is $75 per day. [FIN-001] states that per diem for meals while traveling is $75 per day for domestic travel, and [FIN-002] confirms this in Section 6. Meals While Traveling.",
+      "expected_doc_id": "FIN-001",
+      "cited": [
+        "FIN-001",
+        "FIN-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5199,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 10,
+      "question": "Above what amount is a receipt required for expenses?",
+      "answer": "According to [FIN-001], a receipt is required for any expense of $25 or more. [FIN-001]",
+      "expected_doc_id": "FIN-001",
+      "cited": [
+        "FIN-001"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6157,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 11,
+      "question": "Within how many days must expenses be submitted?",
+      "answer": "According to [FIN-001], expenses must be submitted within **30 days** of incurring them.",
+      "expected_doc_id": "FIN-001",
+      "cited": [
+        "FIN-001"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6171,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 12,
+      "question": "What expense amount can a direct manager approve?",
+      "answer": "According to [FIN-001], a direct manager can approve expenses up to $500. Additionally, a direct manager can also approve annual contract values up to $1,000, as stated in [FIN-003].",
+      "expected_doc_id": "FIN-001",
+      "cited": [
+        "FIN-001",
+        "FIN-003"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6189,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 13,
+      "question": "When can employees book business or premium economy class flights?",
+      "answer": "According to [FIN-002], employees can book **Premium economy or business class** for flights with a scheduled duration of **more than 6 hours**, with director approval.",
+      "expected_doc_id": "FIN-002",
+      "cited": [
+        "FIN-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 7151,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 14,
+      "question": "Is first-class airfare reimbursable?",
+      "answer": "No, first-class airfare is not reimbursable. According to [FIN-001], first-class airfare is listed as a non-reimbursable expense. Additionally, [FIN-002] states that first class is not reimbursable under any circumstances.",
+      "expected_doc_id": "FIN-002",
+      "cited": [
+        "FIN-001",
+        "FIN-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6180,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 15,
+      "question": "What is the standard nightly hotel cap in most U.S. cities?",
+      "answer": "According to [FIN-002], the standard nightly hotel cap in most U.S. cities is $250 per night.",
+      "expected_doc_id": "FIN-002",
+      "cited": [
+        "FIN-002"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5118,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 16,
+      "question": "Is multi-factor authentication required for company accounts?",
+      "answer": "Yes, multi-factor authentication is mandatory on all company accounts [SEC-001].",
+      "expected_doc_id": "SEC-001",
+      "cited": [
+        "SEC-001"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5114,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 17,
+      "question": "What is the minimum password length?",
+      "answer": "According to [SEC-001], passwords must be at least **14 characters**.",
+      "expected_doc_id": "SEC-001",
+      "cited": [
+        "SEC-001"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5102,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 18,
+      "question": "Who should I contact to report a suspected phishing email?",
+      "answer": "You should report a suspected phishing email to **security@helixtech.example** or via the \"Report Phishing\" button in email [SEC-001, SEC-002].",
+      "expected_doc_id": "SEC-001",
+      "cited": [
+        "SEC-001"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5141,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 19,
+      "question": "What is the one-time home office setup stipend?",
+      "answer": "The one-time home office setup stipend is $750 [HR-009, HR-003].",
+      "expected_doc_id": "HR-003",
+      "cited": [
+        "FIN-001"
+      ],
+      "citation_correct": false,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6158,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 20,
+      "question": "What is the annual remote work stipend?",
+      "answer": "According to [HR-003], the annual remote work stipend is $500, paid each January.",
+      "expected_doc_id": "HR-003",
+      "cited": [
+        "HR-003"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 8157,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 21,
+      "question": "What does Helix match on the 401(k)?",
+      "answer": "According to [HR-004], Helix matches **100% of the first 4%** of eligible compensation that an employee contributes to the 401(k) plan.",
+      "expected_doc_id": "HR-004",
+      "cited": [
+        "HR-004"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6406,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 22,
+      "question": "What is the annual learning and development budget?",
+      "answer": "Each employee receives an annual learning & development budget of $1,500 for courses, books, conferences, and certifications relevant to their role [HR-004].",
+      "expected_doc_id": "HR-004",
+      "cited": [
+        "HR-004"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 5127,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 23,
+      "question": "How much notice should I give when resigning?",
+      "answer": "According to [HR-005], employees are asked to give at least two weeks' notice of resignation.",
+      "expected_doc_id": "HR-005",
+      "cited": [
+        "HR-005"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6126,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 24,
+      "question": "How long after my last day do I have to return company equipment?",
+      "answer": "According to [HR-005], employees who do not return company equipment within **14 days** of their last day may have the fair market value of the equipment deducted from final pay.",
+      "expected_doc_id": "HR-005",
+      "cited": [
+        "HR-005"
+      ],
+      "citation_correct": true,
+      "grounded": true,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6167,
+      "model": "llama-3.1-8b-instant"
+    },
+    {
+      "id": 25,
+      "question": "How quickly does Helix respond to a verified data subject request?",
+      "answer": "Helix responds to verified data subject requests within 30 days, extendable as permitted by law [SEC-003, Section 5].",
+      "expected_doc_id": "SEC-003",
+      "cited": [
+        "SEC-003"
+      ],
+      "citation_correct": true,
+      "grounded": false,
+      "partial_match": true,
+      "refused": false,
+      "latency_ms": 6170,
+      "model": "llama-3.1-8b-instant"
+    }
+  ]
+}
