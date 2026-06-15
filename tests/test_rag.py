@@ -1,7 +1,7 @@
 """Stage 3 tests: guardrails (unit) + RAG pipeline (integration, offline).
 
 A lightweight in-memory stand-in for chromadb is installed so the pipeline can be
-tested deterministically without a built index, the embedding model, or API keys.
+tested deterministically without a built index, the embedding model or API keys.
 """
 import sys
 import types

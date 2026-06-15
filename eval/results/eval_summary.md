@@ -1,6 +1,9 @@
 # RAG Evaluation Results
 
-- Model: `llama-3.1-8b-instant`  |  Embeddings: `sentence-transformers/all-MiniLM-L6-v2`  |  Top-k: 4  |  Re-rank: True
+- Model: `llama-3.1-8b-instant`
+- Embeddings: `sentence-transformers/all-MiniLM-L6-v2`  
+- Top-K: 4  
+- Re-Rank: True
 - Questions: 25
 
 ## Summary
@@ -8,13 +11,13 @@
 | Metric | Value |
 |---|---|
 | Groundedness | 96.0% |
-| Citation accuracy | 92.0% |
-| Partial match (gold fact) | 100.0% |
+| Citation Accuracy | 92.0% |
+| Partial Match (Gold Fact) | 100.0% |
 | Latency p50 | 6157.0 ms |
 | Latency p95 | 8195.4 ms |
-| Latency mean | 5574.1 ms |
+| Latency Mean | 5574.1 ms |
 
-## Per-question results
+## Per-Question Results
 
 | # | Question | Expected | Cited | Cite | Grnd | Match | Latency |
 |--:|---|---|---|:--:|:--:|:--:|--:|

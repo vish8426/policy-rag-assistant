@@ -131,7 +131,7 @@ def run_ablation(k_values=(4, 6), eval_path=EVAL_PATH):
         if k == config.TOP_K or headline is None:
             headline = (summary, rows)
 
-    # Headline files reflect the default k (config.TOP_K), or the first k tried.
+    # Headline files reflect the default k (config.TOP_K) or the first k tried.
     RESULTS_DIR.mkdir(exist_ok=True)
     (RESULTS_DIR / "eval_results.json").write_text(
         json.dumps({"summary": headline[0], "rows": headline[1]}, indent=2), encoding="utf-8")

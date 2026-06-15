@@ -37,7 +37,7 @@ with st.sidebar:
     st.markdown(f"**Model:** `{getattr(pipeline.llm, 'model', 'n/a')}`")
     st.markdown(f"**Top-k:** {pipeline.k}  |  **Re-rank:** {config.RERANK}")
     if provider == "stub":
-        st.warning("No API key found — using the offline extractive stub. "
+        st.warning("No API key found - using the offline extractive stub. "
                    "Set GROQ_API_KEY in .env for full LLM answers.")
     st.divider()
     st.markdown("**Try asking:**")
@@ -58,7 +58,7 @@ def render_citations(citations):
         return
     st.markdown("**Sources**")
     for c in citations:
-        with st.expander(f"[{c['doc_id']}] {c['title']} — {c['section']}  ·  {c['source']}"):
+        with st.expander(f"[{c['doc_id']}] {c['title']} - {c['section']}  ·  {c['source']}"):
             st.write(c["snippet"])
 
 

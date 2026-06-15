@@ -3,7 +3,7 @@
 Each supported file type (.md, .html, .txt, .pdf) is parsed and cleaned into a
 common ``Document`` made of ordered ``Section``s. Keeping a heading-aware section
 structure lets the chunker produce citation-friendly chunks (each chunk knows the
-document title, document ID, and the section it came from).
+document title, document ID and the section it came from).
 """
 from __future__ import annotations
 
@@ -202,7 +202,7 @@ SUPPORTED_EXTENSIONS = tuple(_LOADERS.keys())
 
 
 def load_file(path: Path) -> Optional[Document]:
-    """Load a single file into a Document, or None if the type is unsupported."""
+    """Load a single file into a Document or None if the type is unsupported."""
     loader = _LOADERS.get(path.suffix.lower())
     if loader is None:
         return None

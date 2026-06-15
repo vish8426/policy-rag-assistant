@@ -27,7 +27,7 @@ class Chunk:
     metadata: Dict[str, object]
 
 
-# Sentence splitter: break on ., !, ? followed by whitespace, and on newlines/bullets.
+# Sentence splitter: break on ., !, ? followed by whitespace and on newlines/bullets.
 _SENT_SPLIT_RE = re.compile(r"(?<=[.!?])\s+|\n+")
 
 

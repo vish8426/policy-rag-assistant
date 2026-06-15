@@ -25,12 +25,12 @@ def enforce_citations(answer, allowed_doc_ids):
     answer = re.sub(r"\s{2,}", " ", answer).strip()
     kept = [d for d in _CITE_RE.findall(answer) if d in allowed]
     # de-dup preserving order
-    seen, ordered = set(), []
+    seen ordered = set(), []
     for d in kept:
         if d not in seen:
             seen.add(d)
             ordered.append(d)
-    return answer, ordered
+    return answer ordered
 
 
 def cap_words(text, max_words=160):

@@ -121,7 +121,7 @@
     {
       "id": 8,
       "question": "How many floating holidays do employees get each year?",
-      "answer": "According to [HR-007], [HR-010], each employee receives 2 floating holidays per year to use for religious observances, cultural celebrations, or personal days.",
+      "answer": "According to [HR-007], [HR-010], each employee receives 2 floating holidays per year to use for religious observances, cultural celebrations or personal days.",
       "expected_doc_id": "HR-007",
       "cited": [
         "HR-007",
@@ -137,7 +137,7 @@
     {
       "id": 9,
       "question": "What is the meal per diem for domestic travel?",
-      "answer": "According to [FIN-001] and [FIN-002], the meal per diem for domestic travel is $75 per day. [FIN-001] states that per diem for meals while traveling is $75 per day for domestic travel, and [FIN-002] confirms this in Section 6. Meals While Traveling.",
+      "answer": "According to [FIN-001] and [FIN-002], the meal per diem for domestic travel is $75 per day. [FIN-001] states that per diem for meals while traveling is $75 per day for domestic travel and [FIN-002] confirms this in Section 6. Meals While Traveling.",
       "expected_doc_id": "FIN-001",
       "cited": [
         "FIN-001",
@@ -335,7 +335,7 @@
     {
       "id": 22,
       "question": "What is the annual learning and development budget?",
-      "answer": "Each employee receives an annual learning & development budget of $1,500 for courses, books, conferences, and certifications relevant to their role [HR-004].",
+      "answer": "Each employee receives an annual learning & development budget of $1,500 for courses, books, conferences and certifications relevant to their role [HR-004].",
       "expected_doc_id": "HR-004",
       "cited": [
         "HR-004"

@@ -29,7 +29,7 @@ def build_messages(question, chunks):
     user = (
         f"Context (policy excerpts):\n\n{context}\n\n"
         f"Question: {question}\n\n"
-        "Answer using only the context above, and cite document IDs in brackets."
+        "Answer using only the context above and cite document IDs in brackets."
     )
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
