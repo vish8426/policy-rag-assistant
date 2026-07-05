@@ -23,10 +23,10 @@ Documents are first split on their headings (Markdown `#`, HTML `<hN>`, numbered
 
 Chroma was chosen for being lightweight, zero-cost and trivially persistent on disk (`.chroma/`), with no cloud account required. 
 
-### 2.4 Retrieval - Top-K with a Lightweight Re-Rank
+### 2.4 Retrieval - Top-K
 
-Retrieval pulls a candidate pool (10) and re-ranks by blending vector cosine similarity (weight 0.75) with query-term lexical overlap (weight 0.25), then returns the top **k = 4**.
-The value k = 4 was selected empirically (see the ablation in §3.4).
+Retrieval pulls a candidate pool (10) and re-ranks (weight 0.75), then returns the top **k = 4**.
+The value k = 4 was selected.
 
 ### 2.5 Generation - Groq Free Tier (`llama-3.1-8b-instant`)
 
@@ -38,13 +38,12 @@ The system prompt instructs the model to answer **only** from the provided conte
 Three guardrails back this up:
 
 - **Out-of-Corpus Refusal** - if the best retrieved chunk's distance exceeds a threshold the system returns a fixed refusal message; the prompt also instructs the model to refuse.
-- **Citation Enforcement** - any bracketed document ID the model emits that was *not* in the retrieved set is stripped, so the system cannot present a citation it didn't actually
-  retrieve.
+- **Citation Enforcement** - any bracketed document ID the model emits that was *not* in the retrieved set is stripped, so the system cannot present a citation it didn't actually retrieve.
 - **Output Length Cap** - answers are capped to keep them concise.
 
 ### 2.7 Application & CI
 
-The UI is a Streamlit chat app (`/`); a small FastAPI service exposes `POST /chat` (answer + citations + snippets) and `GET /health` (JSON status), satisfying the required endpoints. GitHub Actions runs on every push/PR: install dependencies, an import/build check and the test suite. Because the tests use a fake vector store, the deterministic embedder and the offline LLM stub, CI needs no API key, model download or prebuilt index.
+The UI is a Streamlit chat app (`/`); a small FastAPI service exposes `POST /chat` (answer + citations + snippets) and `GET /health` (JSON status), satisfying the required endpoints. GitHub Actions runs on every push/PR: install dependencies, an import/build check and the test suite. Because the tests use a fake vector store, the embedder and the offline LLM stub, CI needs no API key, model download or prebuilt index.
 
 ## 3. Evaluation
 
@@ -64,18 +63,18 @@ A gold evaluation set of **25 questions** (`eval/eval_set.json`) covers PTO/leav
 | Metric | Result |
 |---|---|
 | Groundedness | **96%** |
-| Citation accuracy | **92%** |
-| Partial match (gold fact) | **100%** |
+| Citation Accuracy | **92%** |
+| Partial Match | **100%** |
 | Latency p50 | 6.2 s |
 | Latency p95 | 8.2 s |
-| Latency mean | 5.6 s |
+| Latency Mean | 5.6 s |
 
 **Interpretation of the Misses.** Manual review shows the system performs better than the raw percentages suggest:
 
 - The two citation "misses" (holidays, home-office stipend) are facts that appear in *multiple* policies. The answers were correct and the model even named the gold document in its text, but retrieval had surfaced an equally-valid alternate source (e.g. `HR-002`, which also states the holiday count), so the strict gold-label check scored them as misses.
 - The single groundedness miss was a **false negative by the judge** - the answer ("data subject requests answered within 30 days") is directly supported by `SEC-003`. Effective groundedness is therefore ~100%.
 
-**Latency Note:** The ~6 s p50 reflects running 25 questions back-to-back against the Groq **free tier, where rate limiting queues requests**; individual answers ranged from 106 ms to ~12 s. Interactive, single-query latency in the app is roughly 250 ms–1 s.
+**Latency Note:** The ~6s p50 reflects running 25 questions back-to-back against the Groq **free tier, where rate limiting queues requests**; individual answers ranged from 106 ms to ~12s. Single-query latency in the app is roughly 250 ms–1s.
 
 ### 3.4 Ablation - Retrieval K
 
@@ -94,9 +93,8 @@ Seeds are fixed and chunking and embeddings are deterministic, so the index rebu
 The evaluation is re-runnable with `python -m eval` (single run) or `python -m eval --ablation` (k = 4 vs k = 6). 
 Full per-question results are written to `eval/results/`.
 
-## 4. Known Limitations & Future Work
+## 4. Known Limitations
 
 - The groundedness judge is the same small (8B) model used for answering; a stronger judge would reduce false negatives.
-- Citation scoring uses a single gold document per question; accepting any fact-supporting document would more fairly credit multi-source facts.
+- Citation scoring uses a single gold document per question.
 - Latency under load is bounded by the free-tier rate limit, not the system itself.
-- Possible extensions: a cross-encoder re-ranker, hybrid (BM25 + vector) retrieval and answer caching.

@@ -1,6 +1,6 @@
 # Policy RAG Assistant
 
-A Retrieval-Augmented Generation (RAG) application that answers questions about a corpus of company policies & procedures, with inline citations to the source documents. Built for the Quantic AI Engineering Project.
+A Retrieval-Augmented Generation (RAG) application that answers questions about a corpus of company policies & procedures, with inline citations to the source documents.
 
 The corpus is a set of 20 synthetic policy documents for a fictional company, "Helix Technologies" (Markdown, HTML, TXT and PDF). Answers are grounded only in retrieved policy text; the assistant refuses questions outside the corpus.
 
